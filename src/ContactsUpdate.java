@@ -29,7 +29,7 @@ public class ContactsUpdate {
 
     public static void viewList() {
         System.out.println("Name | Phone Number");
-        Path ContactsPath = Paths.get("data", "contacts.text");
+        Path ContactsPath = Paths.get("data", "contacts.txt");
         List<String> Personlist = null;
         try{
             Personlist = Files.readAllLines(ContactsPath);
@@ -50,10 +50,11 @@ public class ContactsUpdate {
         String lastName = sc.nextLine();
         System.out.println("Enter phone number.");
         String phoneNumber = sc.nextLine();
-        Files.write(Paths.get("data", "contacts.text"),
+        Files.write(Paths.get("data", "contacts.txt"),
                 Arrays.asList(firstName + " " + lastName + " | " + phoneNumber),
                 StandardOpenOption.APPEND);
-                System.out.println(firstName + " " + lastName + " | " + phoneNumber);
+                //System.out.println(firstName + " " + lastName + " | " + phoneNumber);
+                viewList();
     }
 
     public static void searchContact() {
@@ -61,7 +62,7 @@ public class ContactsUpdate {
         System.out.println("Enter First or Last name.");
         Scanner sc = new Scanner(System.in);
         String searchedName = sc.nextLine();
-        Path ContactsPath = Paths.get("data", "contacts.text");
+        Path ContactsPath = Paths.get("data", "contacts.txt");
         List<String> Personlist;
         try{
             Personlist = Files.readAllLines(ContactsPath);
@@ -80,7 +81,7 @@ public class ContactsUpdate {
         System.out.println("Name or Number: ");
         Scanner sc = new Scanner(System.in);
         String deleteName = sc.nextLine();
-        Path ContactsPath = Paths.get("data", "contacts.text");
+        Path ContactsPath = Paths.get("data", "contacts.txt");
         List<String> Personlist;
         try {
             Personlist = Files.readAllLines(ContactsPath);
@@ -94,7 +95,7 @@ public class ContactsUpdate {
                 System.out.println(name);
             }
 
-            Path test = Paths.get("./data", "contacts.text");
+            Path test = Paths.get("./data", "contacts.txt");
             Files.write(test, Arrays.asList("example - 555555555")); //a path with a thing to write - usually an arraylist or otherwise
         } catch (IOException e) {
             e.printStackTrace();
