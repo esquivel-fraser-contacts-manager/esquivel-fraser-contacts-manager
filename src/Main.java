@@ -6,17 +6,17 @@ public interface Main {
 
         Boolean keepgoing = true;
         do{
-            int userInput = ContactsUpdate.mainMenu();
+            int userInput = ContactsController.mainMenu();
             if (userInput == 1){
-                ContactsUpdate.viewList();
+                ContactsController.viewList();
             } else if (userInput == 2){
-                ContactsUpdate.addContact();
+                ContactsController.addContact();
             } else if (userInput == 3){
-                ContactsUpdate.searchContact();
+                ContactsController.searchContact();
             } else if (userInput == 4){
-                ContactsUpdate.deleteContact();
+                ContactsController.deleteContact();
             } else if (userInput == 5){
-                ContactsUpdate.exit();
+                ContactsController.exit();
                 keepgoing = false;
             } else {
                 System.err.println("Invalid Entry; enter a number from 1 to 5");
