@@ -22,6 +22,7 @@ public class ContactsController {
 
         Scanner sc = new Scanner(System.in);
         int userInput = sc.nextInt();
+        System.out.println();
 
         return userInput;
 
@@ -39,6 +40,7 @@ public class ContactsController {
         for(int i = 0; i < Personlist.size(); i += 1){
             System.out.println((i + 1) + ": " + Personlist.get(i));
         }
+        System.out.println();
     }
 
     public static void addContact() throws IOException {
@@ -74,6 +76,7 @@ public class ContactsController {
         }catch(IOException e){
             e.printStackTrace();
         }
+        System.out.println();
     }
 
     public static void deleteContact() {
@@ -102,7 +105,11 @@ public class ContactsController {
         }
 
     }
-
+//Files.write(Paths.get("data", "contacts.txt"),
+//                Arrays.asList(firstName + " " + lastName + " | " + phoneNumber),
+//                StandardOpenOption.APPEND);
+//                //System.out.println(firstName + " " + lastName + " | " + phoneNumber);
+//                viewList();
     public static void exit() {
             System.out.println("Adios!");
             System.exit(0);
