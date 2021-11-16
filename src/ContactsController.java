@@ -84,6 +84,7 @@ public class ContactsController {
         System.out.println("Name or Number: ");
         Scanner sc = new Scanner(System.in);
         String deleteName = sc.nextLine();
+        System.out.println("Name | Phone Number");
         Path ContactsPath = Paths.get("data", "contacts.txt");
         List<String> Personlist;
         try {
@@ -91,6 +92,7 @@ public class ContactsController {
             List<String> newList = new ArrayList<>();
             for (String person : Personlist) {
                 if (person.toLowerCase().contains(deleteName)) {
+                    continue;
                 }
                 newList.add(person);
             }
@@ -98,18 +100,14 @@ public class ContactsController {
                 System.out.println(name);
             }
 
-            Path test = Paths.get("./data", "contacts.txt");
-            Files.write(test, Arrays.asList("example - 555555555")); //a path with a thing to write - usually an arraylist or otherwise
+            Files.write(Paths.get("data", "contacts.txt"), newList); //a path with a thing to write - usually an arraylist or otherwise
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println();
 
     }
-//Files.write(Paths.get("data", "contacts.txt"),
-//                Arrays.asList(firstName + " " + lastName + " | " + phoneNumber),
-//                StandardOpenOption.APPEND);
-//                //System.out.println(firstName + " " + lastName + " | " + phoneNumber);
-//                viewList();
+
     public static void exit() {
             System.out.println("Adios!");
             System.exit(0);
